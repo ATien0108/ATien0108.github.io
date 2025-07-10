@@ -1,0 +1,232 @@
+[
+{
+	"uri": "//localhost:1313/2-cac-buoc-chuan-bi/2.1-clone-code/",
+	"title": "Clone Source Code from GitHub",
+	"tags": [],
+	"description": "",
+	"content": "Overview The Project Management Dashboard project is pre-built and hosted on GitHub. Cloning the source code to your local machine allows you to edit, install dependencies, and test the application locally (localhost).\nThe source code includes all components: frontend, backend, Prisma configuration, seed data, images, system diagrams, and AWS deployment configuration files.\n👉 Main repository: https://github.com/DyyyPhatt/project-management\nInstructions Open Terminal, Git Bash, or Command Prompt (for Windows users).\nRun the following command to clone the entire source code to your local machine:\ngit clone https://github.com/ed-roh/project-management-dashboard.git "
+},
+{
+	"uri": "//localhost:1313/4-aws-networking/4.1-tao-vpc/",
+	"title": "Create VPC",
+	"tags": [],
+	"description": "",
+	"content": "Objective Create a separate virtual network environment in AWS Define the IP address range for the VPC Configure basic DNS features Steps to Follow Access the AWS Management Console\nSearch for the VPC service Select VPC from the search results In the VPC Dashboard\nSelect Your VPCs from the left menu Click Create VPC Configure VPC parameters\nResources: Select VPC only Name tag: Enter PM IPv4 CIDR: Enter 10.0.0.0/16 Note on Tenancy\nKeep the Tenancy option as Default. Switching to Dedicated may restrict the types of EC2 Instances supported in this VPC.\nConfirm VPC creation\nClick Create VPC to complete the process Verify VPC status after creation Enable DNS features for the VPC\nClick Edit VPC settings Go to the DNS settings tab Enable DNS hostnames and DNS resolution Save changes "
+},
+{
+	"uri": "//localhost:1313/5-ec2/5.1-tao-may-chu-ec2/",
+	"title": "Launch EC2 Instance",
+	"tags": [],
+	"description": "",
+	"content": "Instance Configuration Go to the EC2 Dashboard\nSearch for the EC2 service\nSelect EC2 from the search results\nLaunch a new Instance\nSelect Instances from the left-hand menu\nClick Launch instances\nSet the Instance Name\nUnder Name and tags, enter pm_ec2-backend Choose Amazon Machine Image (AMI)\nSelect Quick Start\nChoose Amazon Linux 2\nPick a suitable AMI version\nConfigure Instance Type and Key Pair\nChoose an appropriate Instance type\nClick Create new key pair\nCreate a new Key Pair\nKey pair name: pm-keypair\nKey pair type: Select RSA\nPrivate key format: Select .pem\nNetwork Settings Configure Network\nVPC: Select the PM VPC\nSubnet: Select Public Subnet 1\nAuto-assign public IP: Select Enable\nSecurity Group: Choose Create Security Group\nSecurity Group Name: pm_ec2-sg\nDescription: pm_ec2-sg\nClick Launch instance\nConfirm the instance was launched successfully Connect Access the EC2 service:\nClick Instances\nSelect pm_ec2-backend\nClick Connect\nIn the Connect to instance section:\nChoose Connection Type\nUsername: ec2-user\nClick Connect\n✅ You have successfully connected!\n"
+},
+{
+	"uri": "//localhost:1313/1-gioi-thieu/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Main Objective of the Project:\nThe Project Management Dashboard is a modern web-based platform that allows users to create, assign, and track projects in real time. It features an intuitive interface with integrated charts and data tables to enhance team productivity.\nProject Goals Manage projects, tasks, team members, and project progress. Implement clear and secure user role permissions. Update statuses and data in real time. Support task drag-and-drop and visualize using charts. Deploy flexibly on AWS cloud infrastructure. Technologies Used Frontend Next.js: React framework with SSR/SSG support, optimized for speed and SEO. Tailwind CSS: Utility-first CSS framework for responsive design. Material UI Data Grid: Powerful data table with sorting, filtering, and pagination. Redux Toolkit + RTK Query: Efficient state management and API handling. React DnD: Drag-and-drop task management. Recharts: Visualize data with bar, pie, and line charts. Backend Node.js + Express: Provides RESTful API services. TypeScript: Enhances code clarity and type safety. Prisma ORM + PostgreSQL: Efficient and maintainable relational database communication. PgAdmin, Postman: Tools for database management and API testing during development. Integrated AWS Services Amazon Cognito: User authentication and authorization with JWT tokens. Amazon EC2: Hosts the Node.js backend server. Amazon RDS (PostgreSQL): Managed relational data storage. Amazon S3: Stores images and attachments. AWS Lambda: Handles small, serverless tasks like sending emails and automation. Amazon API Gateway: Manages and secures API endpoints. System Architecture Overview The system follows a Client – Server – Cloud model with three main layers:\nFrontend (Next.js): Users interact with the dashboard UI and send JWT tokens with API requests. Backend (Express on EC2): Handles business logic, token verification, and database operations. Database (RDS – PostgreSQL): Stores project, user, and task information. Extended Integrations:\nS3: Stores images and attachments. Lambda: Executes automated functions based on events. API Gateway: Manages API endpoints for serverless architecture. System Architecture Diagram:\nNext.js → Cognito → EC2 (Express) → RDS (PostgreSQL)\nExtended services: S3, Lambda, API Gateway\n"
+},
+{
+	"uri": "//localhost:1313/1-gioi-thieu/1.1-de-tai/",
+	"title": "Project Topic",
+	"tags": [],
+	"description": "",
+	"content": "This project focuses on building a modern Project Management Dashboard that allows users to:\nCreate and manage projects, tasks, and team members. Assign user roles, track progress, and update project information in real time. Use charts and data tables to visualize work effectively. The application is designed as a web-based solution, compatible with modern browsers and capable of scaling easily.\nKey Technologies and Services Used Frontend:\n👉 Next.js\nBackend:\n👉 Node.js + Express\nDatabase:\n👉 PostgreSQL + Prisma\nAWS Cloud Services:\n👉 Amazon Cognito\n👉 Amazon EC2\n👉 Amazon RDS\n👉 Amazon S3\n👉 Amazon API Gateway\n👉 AWS Lambda\n"
+},
+{
+	"uri": "//localhost:1313/",
+	"title": "First Cloud Journey",
+	"tags": [],
+	"description": "",
+	"content": "Build a Project Management App with Next.js and Deploy on AWS 📝 PROJECT OVERVIEW Project Title:\nBuilding a Project Management Application using Next.js and deploying it on AWS\nProject Objective:\nDevelop a modern web-based application that allows users to manage projects, tasks, and team members efficiently. The system supports user authentication, access control, real-time project tracking, and visualizes data through charts and data grids.\nTechnologies Used:\nFrontend: Next.js, Tailwind CSS, Material UI Data Grid, Redux Toolkit, Recharts, React DnD Backend: Node.js, Express, Prisma ORM, PostgreSQL AWS Services: Cognito, EC2, RDS, S3, Lambda, API Gateway System Architecture:\nThe application follows a Client – Server – Cloud model, ensuring scalability, flexibility, and security:\nThe user interface is built with Next.js, interacting with the backend via RESTful APIs. The backend is developed using Node.js + Express, deployed on Amazon EC2, handling business logic and authentication. Data is stored and queried efficiently using PostgreSQL on Amazon RDS, accessed through Prisma ORM. Additional AWS services like Cognito (for authentication), S3 (for file storage), Lambda (for lightweight processing), and API Gateway (for securing endpoints) enhance system reliability and scalability. Expected Outcome:\nDeliver a fully functional project management dashboard with a modern UI, smooth user experience, and ready for deployment in real-world environments using AWS cloud infrastructure.\n"
+},
+{
+	"uri": "//localhost:1313/5-ec2/5.2-kiem-tra-ket-noi/",
+	"title": "Connection Check",
+	"tags": [],
+	"description": "",
+	"content": "Environment Preparation Access root privileges to install system tools.\nsudo su -\rInstall NVM (Node Version Manager).\ncurl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash\rReload the shell to use nvm:\n. ~/.nvm/nvm.sh\rInstall the latest Node.js version:\nnvm install node\rCheck installed versions of Node and npm:\nnode -v npm -v Install Git and Clone Project Update system and install Git:\nsudo yum update -y sudo yum install git -y Check Git version:\ngit --version\rClone the project source code from GitHub:\ngit clone https://github.com/DyyyPhatt/project-management.git\rNavigate to the backend (server) folder:\nls cd project-management ls cd server Install and Run the Server Install npm packages for the backend:\nnpm i\rRun the application in development mode:\nnpm run dev\rCreate .env file and set server port to 80:\necho \u0026quot;PORT=80\u0026quot; \u0026gt; .env\rRestart server using the new .env configuration:\nnpm run dev\rInstall and Configure PM2 for Background Process\nInstall PM2 to manage Node.js processes:\nnpm i pm2 -g\rCreate PM2 config file (ecosystem.config.js):\nls\rnano ecosystem.config.js\rEnable PM2 to auto-start on system boot:\nsudo env PATH=$PATH:$(which node) $(which pm2) startup systemd -u $USER --hp $(eval echo $USER)\rStart the server with PM2, check status, and monitor:\npm2 start ecosystem.config.js pm2 status pm2 monit\rStop and delete all current PM2 processes:\npm2 stop all pm2 delete all Restart the server from the config:\npm2 start ecosystem.config.js\r"
+},
+{
+	"uri": "//localhost:1313/4-aws-networking/4.2-tao-subnet/",
+	"title": "Create Subnet",
+	"tags": [],
+	"description": "",
+	"content": "Overview A subnet is a smaller network segment within a VPC Allows distribution of resources across Availability Zones (AZ) Supports classification into public and private networks Steps to Follow Go to the VPC service\nSelect Subnets from the left-hand menu Click Create subnet Select a VPC\nIn the Create subnet screen Choose the PM VPC created earlier Configure the first subnet\nSubnet name: Enter Public Subnet 1 Availability Zone: Choose ap-southeast-1a IPv4 CIDR block: Enter 10.0.0.0/24 Click Create subnet Confirm the subnet was created successfully Create Additional Subnets Repeat the process to create the following subnets:\nPrivate Subnet 1\nCIDR block: 10.0.1.0/24 AZ: ap-southeast-1a Private Subnet 2\nCIDR block: 10.0.2.0/24 AZ: ap-southeast-1b Note on Availability Zones:\nAWS distinguishes between:\nAvailability Zone (AZ): Human-readable name (e.g., ap-southeast-1a) AZ ID: The actual identifier for the AZ\nAWS maps AZ names to AZ IDs differently for each account to distribute resource allocation more evenly. "
+},
+{
+	"uri": "//localhost:1313/2-cac-buoc-chuan-bi/2.2-tai-nodejs/",
+	"title": "Install Node.js",
+	"tags": [],
+	"description": "",
+	"content": "Overview Node.js is a server-side JavaScript runtime environment used to build the backend of this project. The backend leverages Node.js along with Express to handle APIs and connect to the database.\nIn addition to Node.js, the system also requires npm (Node Package Manager) — a tool for managing and installing dependencies for both frontend and backend.\nBoth the frontend (Next.js) and backend (Express.js) require Node.js to run and develop locally.\nInstructions Go to the official Node.js download page: https://nodejs.org/en\nSelect the LTS (Long Term Support) version suitable for your operating system:\nWindows: .msi installer macOS: .pkg installer Linux: choose the version that matches your distro Download and install it like any other software (Next → Next → Install\u0026hellip;).\nVerify the installation by opening Terminal or Command Prompt and running:\nnode -v npm -v "
+},
+{
+	"uri": "//localhost:1313/1-gioi-thieu/1.2-cong-nghe-su-dung/",
+	"title": "Technologies and Development Tools",
+	"tags": [],
+	"description": "",
+	"content": "Frontend Next.js: A React framework that supports SSR/SSG to improve page load speed and SEO. Tailwind CSS: A utility-first CSS framework for building modern, responsive interfaces. Material UI Data Grid: A powerful data table with support for sorting, filtering, and pagination. Redux Toolkit \u0026amp; RTK Query: Manages global state and handles API calls efficiently with minimal boilerplate. React DnD: Enables drag-and-drop interactions within the dashboard interface. Recharts: A charting library for creating visualizations like bar charts, pie charts, line charts, etc. Backend Node.js \u0026amp; Express: Builds RESTful APIs to handle business logic in a flexible way. Prisma ORM: Interfaces with the PostgreSQL database, making queries clearer and easier to maintain. TypeScript: Enhances code safety, reduces runtime errors, and improves code completion. PostgreSQL: A powerful and stable open-source relational database management system. PgAdmin: A graphical interface for managing the database during development. Postman: An intuitive tool for testing APIs and tracking requests and responses during development. "
+},
+{
+	"uri": "//localhost:1313/2-cac-buoc-chuan-bi/",
+	"title": "Preparation Steps",
+	"tags": [],
+	"description": "",
+	"content": "Overview Before running the Project Management Dashboard application, you need to prepare all required tools, libraries, and environment configurations for both frontend and backend. This section guides you through the necessary setup steps on your local machine.\nStep-by-step Checklist ✅ 2.1 – Clone the Source Code Use git clone to download the full source code from GitHub. Repository: 👉 https://github.com/DyyyPhatt/project-management ✅ 2.2 – Install Node.js Required to run both the frontend (Next.js) and backend (Express). Comes with npm for managing packages. ✅ 2.3 – Install Visual Studio Code Recommended IDE for editing and managing the source code. Install plugins for Markdown, JavaScript/TypeScript, Prisma, etc. ✅ 2.4 – Install PostgreSQL Main relational database used in the system. Stores data for users, projects, tasks, roles, permissions, etc. ✅ 2.5 – Install PgAdmin GUI tool for managing and viewing PostgreSQL databases. Useful for inspecting tables, running queries, and monitoring data. ✅ 2.6 – Install Postman Tool to test API endpoints (GET, POST, PUT, DELETE). Supports sending tokens to test Cognito-based authentication. ✅ 2.7 – Install AWS CLI Command-line tool to interact with AWS services like EC2, S3, RDS, Cognito. Required for deploying and managing cloud resources directly from terminal. ✅ 2.8 – Install Required Libraries Install frontend dependencies: Next.js, Tailwind CSS, MUI Data Grid, Redux Toolkit, RTK Query, React DnD, Recharts, Gantt Chart, etc. Install backend dependencies: Express.js, Prisma ORM, and related tools. 👉 Once these steps are completed, you\u0026rsquo;re ready to proceed with project configuration, database setup, and system deployment.\n"
+},
+{
+	"uri": "//localhost:1313/4-aws-networking/4.3-tao-internet-gateway/",
+	"title": "Create Internet Gateway",
+	"tags": [],
+	"description": "",
+	"content": "Overview An Internet Gateway (IGW) is a VPC component that enables internet connectivity Acts as a bridge between your VPC and the internet Supports bidirectional communication for resources inside the VPC Steps to Follow Go to the VPC service\nSelect Internet Gateways from the left-hand menu Click on Create internet gateway Configure the Internet Gateway\nIn the Name tag field, enter Internet Gateway Click Create internet gateway Confirm the Internet Gateway was created successfully Attach to VPC Attach the Internet Gateway to your VPC\nClick Actions Choose Attach to VPC Select the PM VPC from the dropdown (VPC ID will auto-fill) Click Attach internet gateway Confirm Status Once attached:\nThe State of the Internet Gateway will change to Attached The IGW is now ready to route internet traffic for your VPC "
+},
+{
+	"uri": "//localhost:1313/2-cac-buoc-chuan-bi/2.3-tai-vscode/",
+	"title": "Install Visual Studio Code",
+	"tags": [],
+	"description": "",
+	"content": "Overview Choose an IDE that supports plug-ins for various languages to make development more convenient, such as Visual Studio Code, Atom, Notepad++, etc.\nPlug-ins by IDE: Naturally, you will need plug-ins for Markdown (such as Markdown All in One, Markdown TOC, etc.). When working with any language, VS Code will usually suggest the relevant plug-ins, so there\u0026rsquo;s no need to worry.\nInstructions Visit Visual Studio Code to download the IDE. Visit the Documentation page for detailed information and guidance on using extensions. "
+},
+{
+	"uri": "//localhost:1313/1-gioi-thieu/1.3-dich-vu-aws/",
+	"title": "AWS Services Used",
+	"tags": [],
+	"description": "",
+	"content": "Amazon Cognito Handles user sign-up, sign-in, and multi-factor authentication (MFA). Issues JWT tokens for secure API access and role-based authorization. Easily integrates with frontend (Next.js) and backend (Express) via SDK or REST API. Amazon EC2 Deploys the Node.js backend as a virtual server. Customizable RAM, CPU, and operating system configurations. Supports deployment via Git, CI/CD pipelines, or direct SSH access. Amazon RDS (PostgreSQL) Provides a fully managed database (automatic backups, restore, and patching). Enables secure internal connections from backend services (e.g., EC2). Easily monitorable via CloudWatch. Amazon S3 Stores user images and attached document files. Allows frontend upload/download operations based on user or group. Easy integration via pre-signed URLs. AWS Lambda Handles small tasks like sending emails or syncing data without a dedicated server. Can be triggered by events from S3, DynamoDB, API Gateway, etc. Amazon API Gateway Creates and secures backend endpoints. Easily integrates with Lambda or Express-based backends in a microservices architecture. Supports access control via usage plans, API keys, and throttling. AWS Amplify Easily deploy frontend (Next.js) applications with GitHub-integrated CI/CD. Quickly integrate with other AWS services such as Cognito, S3, and API Gateway. Supports hosting for SPA/SSR and backend-as-a-service (GraphQL, REST API). "
+},
+{
+	"uri": "//localhost:1313/3-tao-budget/",
+	"title": "Create a Budget",
+	"tags": [],
+	"description": "",
+	"content": "Overview In this section, you will learn how to create an AWS Budget using AWS’s predefined templates. AWS Budget is an essential tool that helps you monitor and control your AWS spending effectively.\nCreate a Budget using a Template Access the AWS Management Console:\nOpen the AWS Management Console Search for and select AWS Billing and Cost Management In the AWS Billing and Cost Management interface:\nSelect Budgets from the left menu Click on Create a budget Configure your budget settings:\nSelect Use a template (simplified) to use a predefined template Under Templates, choose Monthly cost budget Enter the budget details:\nName your Budget Specify the monthly amount Set up alert thresholds Click Create budget to complete the setup Confirm that the budget was successfully created: Benefits of Using AWS Budget Templates Information: AWS Budget Templates simplify the budgeting process by offering predefined configurations for common use cases.\nPro Tip: Using the Monthly cost budget is a good starting point, but consider creating additional budgets for specific services as your system scales.\nSecurity Note: Make sure to set appropriate access permissions for AWS Budgets so that only authorized users can edit or delete created budgets.\nWarning: Budget alerts do not automatically stop resources or prevent service usage when the budget is exceeded. Consider combining with AWS Service Quotas or IAM policies to enforce usage controls.\n"
+},
+{
+	"uri": "//localhost:1313/4-aws-networking/4.4-tao-route-table/",
+	"title": "Create Route Table",
+	"tags": [],
+	"description": "",
+	"content": "Overview A Route Table defines how network traffic is directed within a VPC It determines the paths that packets take between subnets and the internet Enables control over inbound/outbound traffic in your VPC Steps to Follow Access the VPC service\nSelect Route Tables from the left-hand menu Click on Create route table Configure the Route Table\nName: Enter Route table-Public VPC: Choose the PM VPC (VPC ID will auto-fill) Click Create route table Confirm the route table was created successfully Configure Routing Add route for Internet Gateway\nClick Actions Select Edit routes Add new route\nClick Add route Destination: Enter 0.0.0.0/0 (represents internet) Target: Select Internet Gateway and choose the previously created IGW Click Save changes Associate with Subnet Go to Subnet associations tab\nClick Edit subnet associations Select public subnets\nExpand the Subnet ID column to view details Select the public subnet created earlier Click Save associations Confirm successful subnet association Create Private Route Tables Return to the VPC dashboard\nSelect Route Tables Click Create route table Configure the Route Table\nName: Enter Route table-Private-1 VPC: Select PM VPC Click Create route table Confirm successful creation Similarly, create another route table named Route table-Private-2 Associate with Private Subnets Set up subnet associations Go to Subnet associations tab Click Edit subnet associations Select both private subnets Expand Subnet ID to view details Select both previously created private subnets Click Save associations Confirm successful subnet association "
+},
+{
+	"uri": "//localhost:1313/2-cac-buoc-chuan-bi/2.4-tai-postgresql/",
+	"title": "Install PostgreSQL",
+	"tags": [],
+	"description": "",
+	"content": "Overview PostgreSQL is an open-source relational database management system that is both powerful and flexible. In this project, PostgreSQL serves as the primary data storage system for the backend, handling information such as users, projects, tasks, teams, permissions, and more.\nThe backend (Node.js + Express) communicates with PostgreSQL using Prisma ORM, enabling efficient data management and querying.\nPostgreSQL will be installed and run locally during the development and testing phases.\nInstructions Visit the official PostgreSQL download page:\nhttps://www.postgresql.org/download/\nSelect your corresponding operating system (Windows, macOS, or Linux).\nFor Windows/macOS, download using the PostgreSQL Installer (EDB), then run the .exe or .pkg file.\nDuring the installation process:\nChoose to install PgAdmin (if not already available).\nSet a password for the default postgres user.\nAfter installation, verify that PostgreSQL is working by:\nOpening PgAdmin or using the Terminal with the following command:\npsql -U postgres "
+},
+{
+	"uri": "//localhost:1313/1-gioi-thieu/1.4-mo-hinh-kien-truc/",
+	"title": "System Architecture Model",
+	"tags": [],
+	"description": "",
+	"content": "The system is designed based on a Client – Server – Cloud architecture, ensuring flexibility, scalability, and security. The application consists of three main layers: user interface (frontend), business logic processing (backend), and data storage (database), all deployed on the AWS platform.\nGeneral Workflow 🎯 Frontend (Next.js) Users interact through the dashboard: create projects, assign tasks, manage team members. Uses Redux Toolkit for state management and RTK Query for efficient API communication. Upon login, the frontend sends authentication details to Cognito and receives a JWT token, which is used for secure API requests. 🔐 AWS Cognito Handles user registration, login, password recovery, and multi-factor authentication (MFA). Returns a JWT token including accessToken, idToken, and refreshToken. Easily integrates with the Express backend to authenticate each API request. ⚙️ Backend (Node.js + Express on EC2) Receives requests from the frontend along with the JWT token. Verifies the token with AWS Cognito. Handles business logic: create/update projects, manage tasks, users, roles, etc. Connects to the PostgreSQL database via Prisma ORM. 🗃️ Database (PostgreSQL on RDS) Stores data about users, projects, tasks, and teams. Prisma ORM handles queries like select, insert, update, and delete in a safe and efficient way. Data is monitored and managed using PgAdmin during development. Optional Integrations 🗂️ S3: Stores attachments such as project documents, user profile images, etc. Easily integrated with the frontend. ⚡ Lambda: Executes lightweight functions like sending emails, handling events, updating status when a task is completed. No need for server maintenance. 🌐 API Gateway: Manages and secures RESTful endpoints in case the backend transitions to a serverless model (combining Lambda + API Gateway). System Diagrams 🧩 Overall Architecture Diagram (AWS Architecture) Illustrates the main components: Next.js → Cognito → EC2 → RDS, with integrations to S3, Lambda, API Gateway. 🗂️ Data Model Diagram Shows the relationships between tables: User, Project, Task, Team, Priority, Status, \u0026hellip; 🔐 Cognito Authentication Flow Describes the authentication process with Cognito: Login → get token → use in API → role-based access on backend.\nSaving User:\nFetching User:\nSecuring API:\n"
+},
+{
+	"uri": "//localhost:1313/4-aws-networking/",
+	"title": "AWS NETWORKING",
+	"tags": [],
+	"description": "",
+	"content": "🛰️ Overview of AWS Networking The AWS Networking system is built around VPC (Virtual Private Cloud) – a logically isolated virtual network in the AWS cloud. Setting up core networking components such as VPC, Subnets, Internet Gateway, and Route Tables is foundational for securely deploying services like EC2, RDS, and more.\nVPC – Virtual Private Cloud Acts as a private network within AWS. Allows you to define IP address ranges, DNS settings, access control, and routing rules. Serves as the base layer containing subnets, gateways, and security resources. Subnet – Network Segmentation Divides the VPC into smaller address spaces, distributed across Availability Zones (AZs). Can be configured as Public (internet-facing) or Private (internal only). Enables logical and secure placement of resources like EC2 and RDS. Internet Gateway (IGW) A gateway that connects the VPC to the internet. Must be attached to a VPC to allow public subnets to communicate externally. Supports two-way communication for internet-accessible resources. Route Table Defines how network traffic is routed within a VPC. Maps traffic to destinations such as an Internet Gateway, other subnets, or VPN connections. Each subnet must be associated with a route table that aligns with its function (public/private). ✅ Summary Component Description VPC The isolated network containing all other networking resources Subnet Segments the VPC and scopes the visibility and access of resources Internet Gateway Connects the VPC to the public internet for outbound/inbound communication Route Table Controls traffic flow by defining routing paths within and outside the VPC "
+},
+{
+	"uri": "//localhost:1313/5-ec2/",
+	"title": "EC2",
+	"tags": [],
+	"description": "",
+	"content": "Overview Amazon EC2 (Elastic Compute Cloud) is AWS’s virtual server service that allows you to run applications flexibly and on demand. In this project, EC2 is used to deploy the backend application.\nThe main steps include:\nLaunching an EC2 instance: Select an operating system, configure hardware specs, create a key pair, and attach the instance to the appropriate VPC network.\nConnecting and setting up the environment: SSH into the instance, install Node.js, Git, and required libraries to run a Node.js backend.\nManaging processes with PM2: Run the server in the background and enable automatic restart upon system reboot.\nMastering EC2 operations empowers you to deploy applications independently without fully relying on serverless services.\n"
+},
+{
+	"uri": "//localhost:1313/2-cac-buoc-chuan-bi/2.5-tai-pgadmin/",
+	"title": "Install PgAdmin",
+	"tags": [],
+	"description": "",
+	"content": "Overview PgAdmin is a graphical user interface (GUI) tool for managing PostgreSQL databases. It allows developers to:\nCreate and manage databases. Run SQL queries directly. View table structures, relationships, and actual data. In this project, PgAdmin is used as a support tool for monitoring and interacting with the data during development. It is especially helpful when working with Prisma ORM and seed data.\nInstructions Visit the official download page:\nhttps://www.pgadmin.org/download/\nChoose the version that matches your operating system (Windows/macOS/Linux).\nDownload and install it as you would any typical software.\nAfter installation:\nOpen PgAdmin 4 from your system menu.\nOn first launch, you\u0026rsquo;ll be prompted to set a master password for the GUI → enter and remember it.\nClick Add New Server to connect to your local PostgreSQL:\nName: localhost Host name / address: localhost Port: 5432 Username: postgres Password: (the password you set during PostgreSQL installation, e.g., 1234) Once connected successfully, you can:\nCreate a new database (e.g., project_dashboard) Browse tables and view seed data Run SQL queries directly in the Query Tool tab "
+},
+{
+	"uri": "//localhost:1313/2-cac-buoc-chuan-bi/2.6-tai-postman/",
+	"title": "Install Postman",
+	"tags": [],
+	"description": "",
+	"content": "Overview Postman is one of the most popular tools for testing APIs. It allows developers to:\nSend HTTP requests (GET, POST, PUT, DELETE, PATCH) to the backend server. Add headers, body, and tokens to test authentication. View API responses directly. Save requests into collections for reuse. In this project, Postman is used to:\nTest the functionality of APIs provided by the Express backend. Send authentication tokens from Cognito to verify authorization. Quickly test features like creating projects, tasks, and users before integrating with the frontend. Instructions Visit the official Postman download page:\n👉 https://www.postman.com/downloads/\nChoose the correct version for your operating system:\nWindows: .exe installer macOS: .zip or .dmg file Linux: .tar.gz or AppImage Install the application as you would any standard software.\nAfter launching Postman, you can sign in (or click “Skip and take me to the app”).\nThe main Postman interface includes:\nRequest URL: where you input the API endpoint. Method: select HTTP method (GET, POST, etc.). Headers: add key-value pairs like Authorization: Bearer [token]. Body: used with POST/PUT to send JSON data. Create a dedicated Collection for your project to store frequently used requests (e.g., Login, Get All Projects, Create Task, \u0026hellip;).\n"
+},
+{
+	"uri": "//localhost:1313/6-rds/",
+	"title": "RDS",
+	"tags": [],
+	"description": "",
+	"content": " Access the Amazon RDS Console: Click Databases Click Create database Select database creation method: Choose Standard create Configure the database engine: Select PostgreSQL Set up the template: Choose Free-tier Continue with detailed configuration: DB instance identifier: pm-rds Master username: postgres Switch to Self managed Enter credentials: Master password: your own password (e.g., hellomyfriend1234) Confirm password Storage – Storage autoscaling Uncheck Enable storage autoscaling Connectivity Virtual Private Cloud (VPC): Select PM DB subnet group: Select Create new DB Subnet Group Public Access: Select No VPC Security Group: Select Create new New VPC security group name: pm_rd-sg Availability Zone: ap-southeast-1a Monitoring: Uncheck Enable Performance Insights Additional configuration Initial database name: projectmanagement DB parameter group: default.postgres17 Backup: uncheck Enable automated backups Encryption: uncheck Enable encryption Click Create database Security Group Configuration Edit Inbound rules – Security Group Go to EC2 Select Security Groups Choose pm_rd-sg Click Edit inbound rules Click Add rule Type: PostgreSQL Source: Custom Select pm_ec2-sg Click Save rules Edit Outbound rules – Security Group Go to EC2 Select Security Groups Select pm_ec2-sg Click Edit outbound rules Click Add rule Type: PostgreSQL Source: Custom Select pm_rd-sg Click Save rules Connect from EC2 Access the EC2 instance via Connect Run: pm2 delete all Run: nano .env Paste the following into the .env file, then save: DATABASE_URL=\u0026#34;postgresql://postgres:\u0026lt;RDS password\u0026gt;@\u0026lt;RDS endpoint\u0026gt;:5432/\u0026lt;DB Name\u0026gt;?schema=public\u0026#34; "
+},
+{
+	"uri": "//localhost:1313/7-amplify/",
+	"title": "Amplify",
+	"tags": [],
+	"description": "",
+	"content": " Access the AWS Management Console Search for AWS Amplify Select AWS Amplify from the search results Click Deploy An App Start building with Amplify: Select GitHub Click Next Add repository and branch: Select the project-management repo Check My app is a monorepo Monorepo root directory: client Click Next App settings: Key: NEXT_PUBLIC_API_BASE_URL Value: \u0026lt; Public IPv4 Address \u0026gt; Click Next Review: Click Save and Deploy "
+},
+{
+	"uri": "//localhost:1313/2-cac-buoc-chuan-bi/2.7-tai-aws-cli/",
+	"title": "Install AWS CLI",
+	"tags": [],
+	"description": "",
+	"content": "Overview AWS CLI (Command Line Interface) is the official command-line tool provided by Amazon Web Services. It allows users to:\nInteract with and manage AWS resources directly from the terminal. Deploy services such as EC2, RDS, S3, Cognito, etc., using commands instead of manually navigating the AWS web console. Integrate with DevOps, CI/CD processes, and automate backend deployment or data migration. In this project, AWS CLI is used to:\nConnect to and deploy the backend application to Amazon EC2. Configure access to services such as RDS, S3, and Cognito. Manage AWS resources through shell scripts or terminal commands. Instructions Visit the official AWS CLI download page:\n👉 https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html\nChoose the appropriate version based on your operating system:\nWindows: download the .msi installer macOS: use Homebrew or the .pkg file Linux: use curl, yum, or apt depending on your distro Install following the official instructions. Once installed, open Terminal (or CMD) and check the version:\naws --version ✅ If the output looks like: aws-cli/2.15.x Python/3.x.x\n=\u0026gt; You have successfully installed AWS CLI version 2.\nLog in to your AWS account via CLI by running: aws configure\nThe CLI will prompt for: AWS Access Key ID and AWS Secret Access Key\nDefault region (e.g., us-east-1)\nDefault output format (recommended: json)\nYou can create Access Keys in the AWS IAM \u0026gt; Security credentials section.\n"
+},
+{
+	"uri": "//localhost:1313/8-api-gateway/",
+	"title": "API Gateway",
+	"tags": [],
+	"description": "",
+	"content": " Access AWS Management Console Search for API Gateway Select API Gateway from the search results Navigate to the REST API section Click Build Create a REST API Select New API API name: pm_api-gateway Click Create API ✅ Confirm that the REST API was created successfully\nNavigate to the Resources section\nClick Create Resource\nEnable Proxy Resource Resource name: {proxy+} Check CORS (Cross-Origin Resource Sharing) Click Create Resource ✅ Confirm that the resource was created successfully\nIn the Resource Methods Choose ANY Click Edit integration Integration Type: HTTP Enable HTTP proxy integration HTTP Method: ANY Endpoint URL: \u0026lt;Public IPv4 Address\u0026gt;/{proxy} Content handling: Passthrough Click Save ✅ Confirm the integration was updated successfully\nDeploy the API Stage: New stage Stage name: prod Click Deploy Test the API Access AWS Management Console Search for AWS Amplify Select AWS Amplify from the search results Click View app - Project Management Open Environment Variables Click Manage Variables Update the Value of the variable NEXT_PUBLIC_API_BASE_URL Click Save Go to Overview Select master Click Redeploy this version "
+},
+{
+	"uri": "//localhost:1313/2-cac-buoc-chuan-bi/2.8-cai-dat-thu-vien/",
+	"title": "Library Installation",
+	"tags": [],
+	"description": "",
+	"content": "Frontend – UI Libraries and Client-Side Logic Next.js: A modern React framework with SSR, routing, and project structure support.\nnpm install next react react-dom Tailwind CSS: A utility-first CSS framework for fast and customizable UI development.\nnpm install -D tailwindcss postcss autoprefixer npx tailwindcss init -p Material UI Data Grid (MUI): A powerful data table with support for sorting, filtering, and pagination.\nnpm install @mui/x-data-grid Redux Toolkit \u0026amp; Redux Toolkit Query: Efficient state management and API handling with optimized performance.\nnpm install @reduxjs/toolkit react-redux npm install @reduxjs/toolkit/query react-redux React DnD: Enables drag and drop functionality for tasks, projects, etc.\nnpm install react-dnd react-dnd-html5-backend Recharts: A charting library for creating clean and simple visualizations (bar, line, pie, etc.).\nnpm install recharts Gantt Charts: Create Gantt charts to visualize project timelines.\nnpm install gantt-task-react Backend – Data Processing and Database Libraries Express.js: A minimalist and flexible Node.js framework for building RESTful APIs.\nnpm install express Prisma ORM: A modern ORM for connecting to and interacting with a PostgreSQL database.\nnpm install prisma npx prisma init "
+},
+{
+	"uri": "//localhost:1313/9-s3/",
+	"title": "S3",
+	"tags": [],
+	"description": "",
+	"content": " Access AWS Management Console Search for Amazon S3 Select Amazon S3 from the search results Click Create bucket Bucket name: pm-s3-images-ws Uncheck Block all public access Check I acknowledge that the current settings might result in this bucket and the objects within becoming public Click Create bucket ✅ Confirm bucket creation success\nSelect the pm-s3-images-ws bucket Upload all images from the public folder inside the client directory Files and folders: 29 Total, 16.3 MB Click Upload Click Close Configure access permissions Go to the Permissions tab Click Edit in the Bucket policy section Paste the following JSON: { \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;PublicReadGetObject\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::pm-s3-images-ws/*\u0026#34; } ] } Click Save changes Update the code in next.config.ts import type { NextConfig } from \u0026#34;next\u0026#34;; const nextConfig: NextConfig = { images: { remotePatterns: [ { protocol: \u0026#34;https\u0026#34;, hostname: \u0026#34;pm-s3-images-ws.s3.ap-southeast-1.amazonaws.com\u0026#34;, port: \u0026#34;\u0026#34;, pathname: \u0026#34;/**\u0026#34;, }, ], }, }; export default nextConfig; Update all \u0026lt; Image \u0026gt; components with the new S3 URL paths Push code to GitHub to trigger website redeployment "
+},
+{
+	"uri": "//localhost:1313/10-cognito/",
+	"title": "Cognito",
+	"tags": [],
+	"description": "",
+	"content": " Access AWS Management Console Search for Amazon Cognito service Select Amazon Cognito from the search results Click Create user pool In Configure sign-in experience: Select User name, Email Check Allow users to sign in with a preferred user name and Make username case sensitive Click Next ✅ Successfully created\nUpdate the code Go to User pool Select User pool - pbk6qc Go to the App clients tab In App client name: Project Management Copy the Client ID Paste the Client ID into the .env.local file at: NEXT_PUBLIC_COGNITO_USER_POOL_CLIENT_ID Access AWS Management Console Search for AWS Amplify Select AWS Amplify from the search results Click View app - Project Management\nClick Environment Variables\nChClick ọn Add new Variable: NEXT_PUBLIC_COGNITO_USER_POOL_ID Value: from .env.local code NEXT_PUBLIC_COGNITO_USER_POOL_ID Variable: NEXT_PUBLIC_COGNITO_USER_POOL_CLIENT_ID Value: from .env.local code NEXT_PUBLIC_COGNITO_USER_POOL_CLIENT_ID Click Save Access AWS Management Console Search for Lambda Select Lambda from the results Click Create a function Choose Author from scratch Function name: pm_lambda-trigger Click Create function Select the created Lambda function: pm_lambda-trigger In the Code tab Paste the following code: import https from \u0026#34;node:https\u0026#34;; export const handler = async (event: any) =\u0026gt; { const postData = JSON.stringify({ username: event.request.userAttributes[\u0026#34;preferred_username\u0026#34;] || event.userName, cognitoId: event.userName, profilePictureUrl: \u0026#34;i1.jpg\u0026#34;, teamId: 1, }); const options = { hostname: \u0026#34;\u0026lt;your-api-gateway-id\u0026gt;.execute-api.\u0026lt;region\u0026gt;.amazonaws.com\u0026#34;, port: 443, path: \u0026#34;/create-user\u0026#34;, method: \u0026#34;POST\u0026#34;, headers: { \u0026#34;Content-Type\u0026#34;: \u0026#34;application/json\u0026#34;, \u0026#34;Content-Length\u0026#34;: Buffer.byteLength(postData), }, }; await new Promise((resolve, reject) =\u0026gt; { const req = https.request(options, (res) =\u0026gt; { res.setEncoding(\u0026#34;utf8\u0026#34;); let responseBody = \u0026#34;\u0026#34;; res.on(\u0026#34;data\u0026#34;, (chunk) =\u0026gt; { responseBody += chunk; }); res.on(\u0026#34;end\u0026#34;, () =\u0026gt; { console.log(\u0026#34;Response from API:\u0026#34;, responseBody); resolve(responseBody); }); }); req.on(\u0026#34;error\u0026#34;, (error) =\u0026gt; { console.error(\u0026#34;Error in HTTPS request:\u0026#34;, error); reject(error); }); req.write(postData); req.end(); }); return event; }; Click Deploy "
+},
+{
+	"uri": "//localhost:1313/11-ket-qua-dat-duoc/",
+	"title": "Achievements",
+	"tags": [],
+	"description": "",
+	"content": "Registration Page Login Page Dashboard Page Timeline Page Search Page Settings Page Users Page Project Page Trang Project "
+},
+{
+	"uri": "//localhost:1313/12-don-dep-tai-nguyen/",
+	"title": "Achievements",
+	"tags": [],
+	"description": "",
+	"content": "Registration Page Login Page Dashboard Page Timeline Page Search Page Settings Page Users Page Project Page Trang Project "
+},
+{
+	"uri": "//localhost:1313/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

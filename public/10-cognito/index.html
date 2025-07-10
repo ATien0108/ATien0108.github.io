@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.147.9">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Cognito :: Create a new AWS account.</title>
+
+    
+    <link href="/css/nucleus.css?1752149355" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752149355" rel="stylesheet">
+    <link href="/css/hybrid.css?1752149355" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752149355" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752149355" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752149355" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752149355" rel="stylesheet">
+    <link href="/css/theme.css?1752149355" rel="stylesheet">
+    <link href="/css/tabs.css?1752149355" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752149355" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1752149355" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1752149355"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/10-cognito/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1752149355"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752149355"></script>
+<script type="text/javascript">
+
+var baseurl = "\/\/localhost:1313\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1752149355"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+          <a class="padding" href='/'>
+          </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-gioi-thieu/" title="Introduction" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1-gioi-thieu/">
+           <b> 1. </b> Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-gioi-thieu/1.1-de-tai/" title="Project Topic" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1-gioi-thieu/1.1-de-tai/">
+           <b> 1.1 </b> Project Topic
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-gioi-thieu/1.2-cong-nghe-su-dung/" title="Technologies and Development Tools" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1-gioi-thieu/1.2-cong-nghe-su-dung/">
+           <b> 1.2 </b> Technologies and Development Tools
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-gioi-thieu/1.3-dich-vu-aws/" title="AWS Services Used" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1-gioi-thieu/1.3-dich-vu-aws/">
+           <b> 1.3 </b> AWS Services Used
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-gioi-thieu/1.4-mo-hinh-kien-truc/" title="System Architecture Model" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1-gioi-thieu/1.4-mo-hinh-kien-truc/">
+           <b> 1.4 </b> System Architecture Model
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-cac-buoc-chuan-bi/" title="Preparation Steps" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2-cac-buoc-chuan-bi/">
+           <b> 2. </b> Preparation Steps
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-cac-buoc-chuan-bi/2.1-clone-code/" title="Clone Source Code from GitHub" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2-cac-buoc-chuan-bi/2.1-clone-code/">
+           <b> 2.1 </b> Clone Source Code from GitHub
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-cac-buoc-chuan-bi/2.2-tai-nodejs/" title="Install Node.js" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2-cac-buoc-chuan-bi/2.2-tai-nodejs/">
+           <b> 2.2 </b> Install Node.js
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-cac-buoc-chuan-bi/2.3-tai-vscode/" title="Install Visual Studio Code" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2-cac-buoc-chuan-bi/2.3-tai-vscode/">
+           <b> 2.3 </b> Install Visual Studio Code
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-cac-buoc-chuan-bi/2.4-tai-postgresql/" title="Install PostgreSQL" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2-cac-buoc-chuan-bi/2.4-tai-postgresql/">
+           <b> 2.4 </b> Install PostgreSQL
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-cac-buoc-chuan-bi/2.5-tai-pgadmin/" title="Install PgAdmin" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2-cac-buoc-chuan-bi/2.5-tai-pgadmin/">
+           <b> 2.5 </b> Install PgAdmin
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-cac-buoc-chuan-bi/2.6-tai-postman/" title="Install Postman" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2-cac-buoc-chuan-bi/2.6-tai-postman/">
+           <b> 2.6 </b> Install Postman
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-cac-buoc-chuan-bi/2.7-tai-aws-cli/" title="Install AWS CLI" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2-cac-buoc-chuan-bi/2.7-tai-aws-cli/">
+           <b> 2.7 </b> Install AWS CLI
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-cac-buoc-chuan-bi/2.8-cai-dat-thu-vien/" title="Library Installation" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2-cac-buoc-chuan-bi/2.8-cai-dat-thu-vien/">
+           <b> 2.8 </b> Library Installation
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-tao-budget/" title="Create a Budget" class="dd-item
+        
+        
+        
+        ">
+      <a href="/3-tao-budget/">
+           <b> 3. </b> Create a Budget
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-aws-networking/" title="AWS NETWORKING" class="dd-item
+        
+        
+        
+        ">
+      <a href="/4-aws-networking/">
+           <b> 4. </b> AWS NETWORKING
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-aws-networking/4.1-tao-vpc/" title="Create VPC" class="dd-item
+        
+        
+        
+        ">
+      <a href="/4-aws-networking/4.1-tao-vpc/">
+           <b> 4.1 </b> Create VPC
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-aws-networking/4.2-tao-subnet/" title="Create Subnet" class="dd-item
+        
+        
+        
+        ">
+      <a href="/4-aws-networking/4.2-tao-subnet/">
+           <b> 4.2 </b> Create Subnet
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-aws-networking/4.3-tao-internet-gateway/" title="Create Internet Gateway" class="dd-item
+        
+        
+        
+        ">
+      <a href="/4-aws-networking/4.3-tao-internet-gateway/">
+           <b> 4.3 </b> Create Internet Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-aws-networking/4.4-tao-route-table/" title="Create Route Table" class="dd-item
+        
+        
+        
+        ">
+      <a href="/4-aws-networking/4.4-tao-route-table/">
+           <b> 4.4 </b> Create Route Table
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-ec2/" title="EC2" class="dd-item
+        
+        
+        
+        ">
+      <a href="/5-ec2/">
+           <b> 5. </b> EC2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-ec2/5.1-tao-may-chu-ec2/" title="Launch EC2 Instance" class="dd-item
+        
+        
+        
+        ">
+      <a href="/5-ec2/5.1-tao-may-chu-ec2/">
+           <b> 5.1 </b> Launch EC2 Instance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-ec2/5.2-kiem-tra-ket-noi/" title="Connection Check" class="dd-item
+        
+        
+        
+        ">
+      <a href="/5-ec2/5.2-kiem-tra-ket-noi/">
+           <b> 5.2 </b> Connection Check
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-rds/" title="RDS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/6-rds/">
+           <b> 6. </b> RDS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-amplify/" title="Amplify" class="dd-item
+        
+        
+        
+        ">
+      <a href="/7-amplify/">
+           <b> 7. </b> Amplify
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/8-api-gateway/" title="API Gateway" class="dd-item
+        
+        
+        
+        ">
+      <a href="/8-api-gateway/">
+           <b> 8. </b> API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/9-s3/" title="S3" class="dd-item
+        
+        
+        
+        ">
+      <a href="/9-s3/">
+           <b> 9. </b> S3
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10-cognito/" title="Cognito" class="dd-item
+        
+        active
+        
+        ">
+      <a href="/10-cognito/">
+           <b> 10. </b> Cognito
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/11-ket-qua-dat-duoc/" title="Achievements" class="dd-item
+        
+        
+        
+        ">
+      <a href="/11-ket-qua-dat-duoc/">
+           <b> 11. </b> Achievements
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/12-don-dep-tai-nguyen/" title="Achievements" class="dd-item
+        
+        
+        
+        ">
+      <a href="/12-don-dep-tai-nguyen/">
+           <b> 11. </b> Achievements
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://aws.amazon.com/blogs"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj"><i class='fab fa-facebook'></i> AWS Study Group - FB Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+        
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/10-cognito/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="//localhost:1313/vi/10-cognito/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830891&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>10-07-2025</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i>
+                <a href="https://www.facebook.com/duy.phat.381518"  style="color:orange">Đào Duy Phát</a><br>
+                <a href="https://www.facebook.com/tranthiatien2003"  style="color:orange">Trần Thị Á Tiên</a>
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>First Cloud Journey</a> > Cognito
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Cognito
+            </h1>
+          
+
+        
+
+
+
+	<ol>
+<li>Access <strong>AWS Management Console</strong></li>
+</ol>
+<ul>
+<li>Search for <strong>Amazon Cognito</strong> service</li>
+<li>Select <strong>Amazon Cognito</strong> from the search results</li>
+</ul>
+<p align="center">
+<img src="/images/10/10.1.png" style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<ol start="2">
+<li>Click <strong>Create user pool</strong></li>
+</ol>
+<p align="center">
+<img src="/images/10/10.2.1.png" style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<ul>
+<li>In <strong>Configure sign-in experience</strong>:
+<ul>
+<li>Select <strong>User name, Email</strong></li>
+<li>Check <strong>Allow users to sign in with a preferred user name</strong> and <strong>Make username case sensitive</strong></li>
+<li>Click <strong>Next</strong></li>
+</ul>
+</li>
+</ul>
+<p align="center">
+<img src="/images/10/10.2.2.png" style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<p>✅ Successfully created</p>
+<p align="center">
+<img src="/images/10/10.2.3.png" style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<ol start="3">
+<li>Update the code</li>
+</ol>
+<ul>
+<li>Go to <strong>User pool</strong></li>
+<li>Select <strong>User pool - pbk6qc</strong></li>
+</ul>
+<p align="center">
+<img src="/images/10/10.3.1.png" style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<ul>
+<li>Go to the <strong>App clients</strong> tab</li>
+<li>In <strong>App client name</strong>: <strong>Project Management</strong></li>
+<li>Copy the <strong>Client ID</strong></li>
+</ul>
+<p align="center">
+<img src="/images/10/10.3.2.png" style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<ul>
+<li>Paste the <strong>Client ID</strong> into the <code>.env.local</code> file at: <strong>NEXT_PUBLIC_COGNITO_USER_POOL_CLIENT_ID</strong></li>
+</ul>
+<ol start="4">
+<li>Access <strong>AWS Management Console</strong></li>
+</ol>
+<ul>
+<li>Search for <strong>AWS Amplify</strong></li>
+<li>Select <strong>AWS Amplify</strong> from the search results</li>
+</ul>
+<ol start="5">
+<li>
+<p>Click <strong>View app - Project Management</strong></p>
+</li>
+<li>
+<p>Click <strong>Environment Variables</strong></p>
+</li>
+</ol>
+<p align="center">
+<img src="/images/10/10.6.1.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<ul>
+<li>ChClick ọn <strong>Add new</strong></li>
+<li><strong>Variable</strong>: <strong>NEXT_PUBLIC_COGNITO_USER_POOL_ID</strong></li>
+<li><strong>Value</strong>: from <strong>.env.local</strong> code <strong>NEXT_PUBLIC_COGNITO_USER_POOL_ID</strong></li>
+<li><strong>Variable</strong>: <strong>NEXT_PUBLIC_COGNITO_USER_POOL_CLIENT_ID</strong></li>
+<li><strong>Value</strong>: from <strong>.env.local</strong> code <strong>NEXT_PUBLIC_COGNITO_USER_POOL_CLIENT_ID</strong></li>
+<li>Click <strong>Save</strong></li>
+</ul>
+<p align="center">
+<img src="/images/10/10.6.2.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<ol start="7">
+<li>Access <strong>AWS Management Console</strong></li>
+</ol>
+<ul>
+<li>Search for <strong>Lambda</strong></li>
+<li>Select <strong>Lambda</strong> from the results</li>
+</ul>
+<p align="center">
+<img src="/images/10/10.7.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<ol start="8">
+<li>Click Create a function</li>
+</ol>
+<p align="center">
+<img src="/images/10/10.8.1.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<ul>
+<li>Choose <strong>Author from scratch</strong></li>
+<li><strong>Function name</strong>: <code>pm_lambda-trigger</code></li>
+<li>Click <strong>Create function</strong></li>
+</ul>
+<p align="center">
+<img src="/images/10/10.8.2.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<p align="center">
+<img src="/images/10/10.8.3.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto;" />
+</p>
+<ol start="9">
+<li>Select the created Lambda function: <strong><em>pm_lambda-trigger</em></strong></li>
+</ol>
+<ul>
+<li>In the <strong>Code</strong> tab</li>
+<li>Paste the following code:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">https</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;node:https&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handler</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">event</span>: <span style="color:#66d9ef">any</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">postData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">username</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">event.request.userAttributes</span>[<span style="color:#e6db74">&#34;preferred_username&#34;</span>] <span style="color:#f92672">||</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">userName</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">cognitoId</span>: <span style="color:#66d9ef">event.userName</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">profilePictureUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;i1.jpg&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">teamId</span>: <span style="color:#66d9ef">1</span>,
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">hostname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;your-api-gateway-id&gt;.execute-api.&lt;region&gt;.amazonaws.com&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">port</span>: <span style="color:#66d9ef">443</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/create-user&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;POST&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;application/json&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;Content-Length&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">byteLength</span>(<span style="color:#a6e22e">postData</span>),
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Promise</span>((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">req</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">request</span>(<span style="color:#a6e22e">options</span>, (<span style="color:#a6e22e">res</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">setEncoding</span>(<span style="color:#e6db74">&#34;utf8&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">responseBody</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;data&#34;</span>, (<span style="color:#a6e22e">chunk</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">responseBody</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">chunk</span>;
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;end&#34;</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Response from API:&#34;</span>, <span style="color:#a6e22e">responseBody</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">responseBody</span>);
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;error&#34;</span>, (<span style="color:#a6e22e">error</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error in HTTPS request:&#34;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">reject</span>(<span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">postData</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">end</span>();
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">event</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><ul>
+<li>Click <strong>Deploy</strong></li>
+</ul>
+<p align="center">
+<img src="/images/10/10.9.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+<ol start="10">
+<li>Go to <strong>Amazon Cognito &gt; User pools &gt; pm-ProjectManagement-userpool</strong></li>
+</ol>
+<ul>
+<li>In the <strong>User pool properties</strong> tab</li>
+</ul>
+<p align="center">
+<img src="/images/10/10.10.1.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+<ul>
+<li>Chọn <strong>Add Lambda trigger</strong>
+<ul>
+<li><strong>Trigger type</strong>: <em><strong>Sign-up</strong></em></li>
+<li><strong>Sign-up</strong>: <em><strong>Post confirmation trigger</strong></em></li>
+<li><strong>Assign Lambda function</strong>: <em><strong>pm_lambda-trigger</strong></em></li>
+<li>Chọn <strong>Create lambda trigger</strong></li>
+</ul>
+</li>
+</ul>
+<p align="center">
+<img src="/images/10/10.10.2.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+<p align="center">
+<img src="/images/10/10.10.3.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+<ol start="11">
+<li>Vào <strong>API Gateway &gt; APis &gt; pm_api-gateway (80okiqrybg) &gt; Authorizers &gt; Create authorizer</strong></li>
+</ol>
+<p align="center">
+<img src="/images/10/10.11.1.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+<ul>
+<li><strong>Authorizer name</strong>: <code>pm_api-gateway-authorizer</code></li>
+<li><strong>Authorizer type</strong>: <em><strong>Cognito</strong></em></li>
+<li><strong>Cognito user pool</strong>: <em><strong>pm-ProjectManagement-userpool</strong></em></li>
+<li><strong>Token source</strong>: <strong><em>Authorization</em></strong></li>
+<li><strong>Create Authorizer</strong></li>
+</ul>
+<p align="center">
+<img src="/images/10/10.11.2.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+<p align="center">
+<img src="/images/10/10.11.3.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+<ol start="12">
+<li>Go to <strong>EC2 &gt; Instance &gt; pm_ec2-backend &gt; Connect</strong></li>
+</ol>
+<ul>
+<li>
+<p>In EC2 Instance Connect</p>
+</li>
+<li>
+<p>Run the following commands:</p>
+<p><code>sudo su -</code></p>
+<p><code>ls</code></p>
+<p><code>cd project-management/</code></p>
+<p><code>git pull</code></p>
+<p><code>cd server</code></p>
+<p><code>ls</code></p>
+<p><code>nano .env</code></p>
+<p><code>pm2 delete all</code></p>
+<p><code>pm2 start ecosystem.config.js</code></p>
+<p><code>pm2 monit</code></p>
+</li>
+</ul>
+<p align="center">
+<img src="/images/10/10.12.1.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+<p align="center">
+<img src="/images/10/10.12.2.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+<p align="center">
+<img src="/images/10/10.12.3.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+<p align="center">
+<img src="/images/10/10.12.4.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+<p align="center">
+<img src="/images/10/10.12.5.png"  style="max-width:800px; width:100%; height:auto; display:block; margin:auto/>
+</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/9-s3/" title="S3"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/11-ket-qua-dat-duoc/" title="Achievements" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1752149355"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752149355"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752149355"></script>
+    <script src="/js/jquery.sticky.js?1752149355"></script>
+    <script src="/js/featherlight.min.js?1752149355"></script>
+    <script src="/js/highlight.pack.js?1752149355"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752149355"></script>
+    <script src="/js/learn.js?1752149355"></script>
+    <script src="/js/hugo-learn.js?1752149355"></script>
+    
+        
+            <script src="/mermaid/mermaid.js?1752149355"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
